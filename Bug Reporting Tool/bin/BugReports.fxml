@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="93.0" prefWidth="88.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <children>
+      <Pane layoutX="7.0" prefHeight="500.0" prefWidth="700.0">
+         <children>
+            <Label layoutX="200.0" layoutY="14.0" text="Create Bug Report">
+               <font>
+                  <Font name="Arial" size="36.0" />
+               </font>
+            </Label>
+            <Label layoutX="438.0" layoutY="301.0" text="How to reproduce the problem">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="261.0" layoutY="301.0" text="Can you reproduce it?">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="51.0" layoutY="301.0" text="Problem Summary">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="415.0" layoutY="90.0" text="Date Found">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="415.0" layoutY="176.0" text="Bug Report Severity">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="199.0" text="Bug Report Type">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="163.0" text="Project ID">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="128.0" text="Reporter">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <RadioButton layoutX="415.0" layoutY="207.0" mnemonicParsing="false" text="Minor">
+               <toggleGroup>
+                  <ToggleGroup fx:id="severityGroup" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton layoutX="415.0" layoutY="233.0" mnemonicParsing="false" text="Serious" toggleGroup="$severityGroup" />
+            <RadioButton layoutX="415.0" layoutY="262.0" mnemonicParsing="false" text="Fatal" toggleGroup="$severityGroup" />
+            <RadioButton layoutX="46.0" layoutY="233.0" mnemonicParsing="false" text="Coding Error">
+               <toggleGroup>
+                  <ToggleGroup fx:id="reportTypeGroup" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton layoutX="46.0" layoutY="262.0" mnemonicParsing="false" text="Design Issue" toggleGroup="$reportTypeGroup" />
+            <TextField fx:id="reporterUsername" layoutX="112.0" layoutY="124.0" />
+            <DatePicker fx:id="bugFoundDate" layoutX="500.0" layoutY="86.0" />
+            <TextArea fx:id="bugSummaryInput" layoutX="50.0" layoutY="331.0" prefHeight="77.0" prefWidth="207.0" />
+            <ComboBox fx:id="canReproduceInput" layoutX="277.0" layoutY="345.0" prefHeight="25.0" prefWidth="106.0">
+           	 <items>
+        		<FXCollections fx:factory="observableArrayList">
+        			  <String fx:value="Yes" />
+        			  <String fx:value="No" />
+               </FXCollections>
+    		  </items>
+    		  <value>
+        			<String fx:value="Yes" />
+    		</value>
+    		</ComboBox>
+            <TextArea fx:id="reproductionDescriptionInput" layoutX="426.0" layoutY="331.0" prefHeight="77.0" prefWidth="236.0" />
+            <Button fx:id="callQuitButton" layoutX="67.0" layoutY="433.0" mnemonicParsing="false" onAction="#callQuit" text="Quit">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="backButton" layoutX="561.0" layoutY="433.0" mnemonicParsing="false" onAction="#regularBack" text="Back">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="createBugReportButton" layoutX="304.0" layoutY="433.0" mnemonicParsing="false" onAction="#addBugReport" text="Create">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <ComboBox fx:id="projectIDInput" layoutX="133.0" layoutY="159.0" prefHeight="25.0" prefWidth="106.0" value="Select" />
+            <Button fx:id="loadProjectIdsButton" layoutX="174.0" layoutY="434.0" mnemonicParsing="false" onAction="#loadProjectIds" text="Load Projects" />
+               
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

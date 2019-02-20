@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="351.0" prefWidth="439.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <children>
+      <Pane layoutX="-2.0" prefHeight="522.0" prefWidth="511.0">
+         <children>
+            <Label layoutX="209.0" layoutY="23.0" text="Users">
+               <font>
+                  <Font name="Arial" size="35.0" />
+               </font>
+            </Label>
+            <TextField fx:id="usernameInput" layoutX="92.0" layoutY="369.0" />
+            <TextField fx:id="userPasswordInput" layoutX="330.0" layoutY="369.0" />
+            <TextField fx:id="userNameInput" layoutX="92.0" layoutY="336.0" />
+            <Label layoutX="22.0" layoutY="374.0" prefHeight="16.0" prefWidth="65.0" text="Username">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="50.0" layoutY="341.0" text="Name">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="284.0" layoutY="340.0" text="Type">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="256.0" layoutY="374.0" text="Password">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <TableView fx:id="userTable" editable="true" layoutX="18.0" layoutY="75.0" prefHeight="248.0" prefWidth="473.0">
+              <columns>
+                <TableColumn fx:id="userNameColumn" editable="true" onEditCommit="#updateUser" prefWidth="120.0" text="Name">
+                 	<cellValueFactory><PropertyValueFactory property="name" />
+       				 </cellValueFactory>
+    				 </TableColumn>
+                <TableColumn fx:id="userTypeColumn" editable="true" onEditCommit="#updateUser" prefWidth="120.0" text="Type">
+                		<cellValueFactory><PropertyValueFactory property="userType" />
+       					 </cellValueFactory>
+    					 </TableColumn>
+                  <TableColumn fx:id="usernameColumn" editable="false" prefWidth="120.0" text="Username">
+                  		<cellValueFactory><PropertyValueFactory property="username" />
+       					 </cellValueFactory>
+    					 </TableColumn>
+                  <TableColumn fx:id="userPasswordColumn" editable="true" onEditCommit="#updateUser" prefWidth="120.0" text="Password">
+                  		<cellValueFactory><PropertyValueFactory property="password" />
+       				 	</cellValueFactory>
+    				 	</TableColumn>
+              </columns>
+            </TableView>
+            <Button layoutX="47.0" layoutY="415.0" mnemonicParsing="false" onAction="#addUser" text="Add">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="394.0" layoutY="415.0" mnemonicParsing="false" onAction="#deleteUser" text="Delete">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="callQuitButton" layoutX="46.0" layoutY="473.0" mnemonicParsing="false" onAction="#callQuit" text="Quit">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="backButton" layoutX="398.0" layoutY="473.0" mnemonicParsing="false" onAction="#regularBack" text="Back">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <Separator layoutX="1.0" layoutY="456.0" prefHeight="3.0" prefWidth="509.0" />
+            <Button layoutX="209.0" layoutY="415.0" mnemonicParsing="false" onAction="#loadUsers" text="Load Users">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font></Button>
+            <ComboBox fx:id="userTypeInput" layoutX="330.0" layoutY="336.0" prefHeight="25.0" prefWidth="149.0" value="Tester">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="Tester" />
+                     <String fx:value="Developer" />
+                     <String fx:value="Project Manager" />
+                  </FXCollections>
+               </items>
+            </ComboBox>
+           
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
